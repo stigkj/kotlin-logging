@@ -15,7 +15,7 @@ buildscript {
 }
 
 group = "io.github.microutils"
-version = "1.12.4" + (if (System.getProperty("snapshot")?.toBoolean() == true) "-SNAPSHOT" else "")
+version = "1.12.5" + (if (System.getProperty("snapshot")?.toBoolean() == true) "-SNAPSHOT" else "")
 
 repositories {
     mavenCentral()
@@ -33,6 +33,11 @@ tasks {
         outputFormat = "javadoc"
         outputDirectory = "$buildDir/dokka"
     }
+}
+
+// see issue #163
+tasks.withType<GenerateModuleMetadata> {
+    enabled = false
 }
 
 kotlin {
