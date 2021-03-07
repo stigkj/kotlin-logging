@@ -35,11 +35,6 @@ tasks {
     }
 }
 
-// see issue #163
-tasks.withType<GenerateModuleMetadata> {
-    enabled = false
-}
-
 kotlin {
     metadata {
         mavenPublication {
